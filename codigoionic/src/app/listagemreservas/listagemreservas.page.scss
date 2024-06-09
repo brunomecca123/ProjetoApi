@@ -1,0 +1,159 @@
+.perfil-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .escrita {
+    margin-top: -88px;
+    margin-left: 43px;
+    top: 11px;
+    color: white;
+  }
+
+  .nome {
+    font-size: 18px;
+
+  }
+
+  .data {
+    font-size: 16px;
+    color: white;
+  }
+
+  .qtde {
+    font-size: 16px;
+    color: white;
+  }
+
+  .botao-cancela{
+    width: 35px;
+    height: 35px;
+
+  }
+
+  .col-botao-cancela{
+    left: 249px;
+    top: 20px;
+  }
+
+  .botao-confirma{
+    width: 35px;
+    height: 35px;
+  }
+
+  .col-botao-confirma{
+    left: 55px;
+    top: 20px;
+  }
+
+  .personaliza-card {
+    max-width: 300px;
+    max-height: 80px;
+    margin: 0 auto;
+    background-color: #3D4A58;
+    border-radius: 40px;
+  }
+
+  .icon-col {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon-men-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    right: 10px;
+    top: -48px;
+    color: white;
+  }
+
+  .border-right {
+    position: absolute;
+    top: 50%;
+    right: 84%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 157%;
+    background-color: white;
+  }
+
+  .icon-wrapper-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .perfil-icon {
+    font-size: 32px;
+  }
+
+  .icon-wrapper-perfil .label {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 8px;
+  }
+
+  .perfil-container {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+
+  }
+
+  .perfil {
+    --background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 11px;
+
+  }
+  .perfil:hover {
+    --background: transparent;
+
+  }
+
+  .perfil:active {
+    --background: transparent;
+
+  }
+
+
+  .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+
+  }
+
+  .icon-wrapper ion-icon {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  }
+
+  .icon-wrapper .label {
+  color: black;
+  margin-top: 8px;
+  }
+
+  .card-descricaoreserva{
+    background-color: #d9d9d9;
+    padding: 15px 10px;
+    border-radius: 8px;
+    -webkit-box-shadow: -0.5px 0.5px 4px 0px rgba(121, 121, 121, 0.75);
+    -moz-box-shadow: -0.5px 0.5px 4px 0px rgba(121, 121, 121, 0.75);
+    box-shadow: -0.5px 0.5px 4px 0px rgba(121, 121, 121, 0.75);
+    cursor: pointer;
+  }

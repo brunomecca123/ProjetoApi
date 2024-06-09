@@ -35,11 +35,11 @@ public class SwaggerConfiguracoes {
     }
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-        .title("PROJETO API")
-        .description("Projeto destinado ao trabalho de API REST")
+        .title("API - PARA RESERVA DE MESAS!")
+        .description("API Para Reserva de Mesas!")
         .version("1.0")
-        .termsOfServiceUrl("https://github.com/brunomecca123/ProjetoApi")
-        .license("Alunos: Bruno Mecca, Lohan Goncalves")
+        .termsOfServiceUrl("https://https://github.com/vaquejano")
+        .license("Alunos: Carlos Bergamo, Bruno Mecca, Lohan Goncalves, Lucas Gava")
         .build();
     }
 }

@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar class="fundo">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fundo">
+  <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  <ion-row class="ion-text-center">
+    <ion-col size="13" >
+    <img src="assets/img/resrvtab.png">
+  </ion-col>
+  </ion-row>
+
+  <ion-card class="fundo">
+    <ion-card-header class="fundo">
+      <ion-card-title style="text-align: center;"><b> Informações do usuário </b></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="fundo">
+        <ion-label> Nome: </ion-label>
+        <ion-text> {{ usuarioLogado.nomeUsuario }} </ion-text>
+      </ion-item>
+
+      <ion-item class="fundo">
+        <ion-label> E-mail: </ion-label>
+        <ion-text> {{ usuarioLogado.emailUsuario }} </ion-text>
+      </ion-item>
+
+      <ion-item class="fundo">
+        <ion-label> CPF: </ion-label>
+        <ion-text> {{ usuarioLogado.cpfUsuario }} </ion-text>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+<br>
+  <ion-row class="button-row">
+    <div class="ion-text-center">
+    <ion-col size="2" class="button-col">
+<ion-button class="green-button" shape="round" (click)="alterarDados()">
+        <ion-icon slot="start" name="create-outline"></ion-icon>
+        Alterar
+        <Br>
+          Dados
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="2" class="ion-text-end button-col">
+      <ion-button id="present-alert" shape="round" color="danger" (click)="deletarDadosUsuario()">
+        <ion-icon slot="start" name="remove-circle-outline"></ion-icon>
+        Excluir
+        <br>
+        Conta
+      </ion-button>
+    </ion-col>
+  </div>
+  </ion-row>
+  <br>
+</ion-content>

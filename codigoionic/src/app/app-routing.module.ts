@@ -15,7 +15,54 @@ const routes: Routes = [
     path: 'usuario',
     loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
   },
-  
+  {
+    path: 'empresa',
+    loadChildren: () => import('./empresa/empresa.module').then( m => m.EmpresaPageModule)
+  },
+  {
+    path: 'cadastrousuario',
+    loadChildren: () => import('./cadastrousuario/cadastrousuario.module').then( m => m.CadastrousuarioPageModule)
+  },
+  {
+    path: 'cadastroempresa',
+    loadChildren: () => import('./cadastroempresa/cadastroempresa.module').then( m => m.CadastroempresaPageModule)
+  },  {
+    path: 'dados',
+    loadChildren: () => import('./dados/dados.module').then( m => m.DadosPageModule)
+  },
+  {
+    path: 'listagemempresas',
+    loadChildren: () => import('./listagemempresas/listagemempresas.module').then( m => m.ListagemempresasPageModule)
+  },
+  {
+    path: 'descricaoempresa',
+    loadChildren: () => import('./descricaoempresa/descricaoempresa.module').then( m => m.DescricaoempresaPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },  {
+    path: 'alterardados',
+    loadChildren: () => import('./alterardados/alterardados.module').then( m => m.AlterardadosPageModule)
+  },
+  {
+    path: 'listagemreservas',
+    loadChildren: () => import('./listagemreservas/listagemreservas.module').then( m => m.ListagemreservasPageModule)
+  },
+  {
+    path: 'perfilempresa',
+    loadChildren: () => import('./perfilempresa/perfilempresa.module').then( m => m.PerfilempresaPageModule)
+  },
+  {
+    path: 'alterardadosempresa',
+    loadChildren: () => import('./alterardadosempresa/alterardadosempresa.module').then( m => m.AlterardadosempresaPageModule)
+  },
+  {
+    path: 'cardapioempresa',
+    loadChildren: () => import('./cardapioempresa/cardapioempresa.module').then( m => m.CardapioempresaPageModule)
+  },
+
+
 ];
 
 @NgModule({

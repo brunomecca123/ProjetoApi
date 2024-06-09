@@ -1,2 +1,2 @@
-# ProjetoApi
-Projeto destinado ao trabalho de API REST
+# ReservasIonic
+Projeto do trabalho
