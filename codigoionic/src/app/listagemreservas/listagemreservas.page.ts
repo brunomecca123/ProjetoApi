@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DadosService } from '../api/dados.service';
 import { NavController } from '@ionic/angular';
 import { ListagemreservasService } from '../api/listagemreservas.service';
 
@@ -9,50 +8,50 @@ import { ListagemreservasService } from '../api/listagemreservas.service';
   templateUrl: './listagemreservas.page.html',
   styleUrls: ['./listagemreservas.page.scss'],
 })
-export class ListagemreservasPage {
+export class ListagemreservasPage implements OnInit {
 
-  public empresaLogada : any = {}
-  // public descricaoreservas: any = {}
+  public empresaLogada: any = {};
+  public descricaoreservas: any = [];
 
-  public descricaoreservas = [{
-      codReserva      : '',
-      dataReserva     : '',
-      horario         : '',
-      quantidadeLugar : '',
-      codEmpresa      : '',
-      codUsuario      : '',
-    
-      usuario: {
-        codUsuario: 0,
-        cpfUsuario: '',
-        emailUsuario: '',
-        nomeUsuario: '',
-        senhaUsuario: '',
-        telefoneUsuario: ''
-      },
-      empresa: {
-        codEmpresa: 0,
-        cardapioEmpresa: '',
-        cnpjEmpresa: '',
-        emailEmpresa: '',
-        enderecoEmpresa: '',
-        imagemEmpresa: '',
-        nomeFantasia: '',
-        nomeResponsavel: '',
-        porteEmpresa: '',
-        ramoEmpresa: '',
-        senhaEmpresa: ''
-      },
-}]
-
-  constructor(private router: Router, private listagemreservasservice: ListagemreservasService, private route: ActivatedRoute, private navCtrl: NavController) {
-
+  constructor(
+    private router: Router,
+    private listagemreservasservice: ListagemreservasService,
+    private route: ActivatedRoute,
+    private navCtrl: NavController
+  ) {
     this.route.queryParams.subscribe((params) => {
       this.empresaLogada = params['empresaLogada'];
-      this.listagemreservasservice.getReservas().then((reservas: any) =>{
-        this.descricaoreservas = reservas
-      })
+      this.carregarReservas(); // Chama a função para carregar as reservas ao inicializar
     });
+  }
+
+  ngOnInit() {
+    this.carregarReservas();
+  }
+
+  carregarReservas() {
+    this.listagemreservasservice.getReservas().then((reservas: any) => {
+      console.log('Reservas carregadas:', reservas); // Log dos dados recebidos
+      this.descricaoreservas = reservas;
+    }).catch(error => {
+      console.error('Erro ao carregar reservas:', error);
+    });
+  }
+
+  confirmarReserva(reserva: any) {
+    const confirmar = confirm('Tem certeza de que deseja cancelar a reserva?');
+
+    if (confirmar) {
+      this.listagemreservasservice.deleteReserva(reserva).then(() => {
+        console.log('Reserva cancelada com sucesso!');
+        // Atualizar a lista de reservas após cancelamento
+        this.carregarReservas();
+      }).catch(error => {
+        console.error('Erro ao cancelar reserva:', error);
+      });
+    } else {
+      console.log('Evento deletar reserva cancelado!');
+    }
   }
 
   openPerfilEmpresa() {
@@ -60,21 +59,4 @@ export class ListagemreservasPage {
       queryParams: { empresaLogada: this.empresaLogada },
     });
   }
-
-  confirmarReserva(){
-    const confirmar = confirm('Tem certeza de que deseja cancelar a reserva?');
-  
-    if (confirmar) {
-      this.listagemreservasservice.deleteReserva(this.descricaoreservas).then((reservas: any) => {
-        this.descricaoreservas = reservas;
-        console.log('Reserva cancelada com sucesso!');
-        
-      });
-    } else {
-      console.log('Evento deletar reserva cancelado!')
-    }
-  }
-
-  }
-
-
+}

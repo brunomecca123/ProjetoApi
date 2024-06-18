@@ -11,16 +11,21 @@ export class ListagemreservasService {
   constructor(private http: HttpClient) { }
 
   public getReservas(){
-    return new Promise((ret) => {
-      this.http.get(this.host + 'reservas').subscribe(reserva => {
-        ret(reserva);
-      });
+    return new Promise((resolve, reject) => {
+      this.http.get(this.host + 'reservas').subscribe(
+        (reserva: any) => {
+          resolve(reserva);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
     });
   }
 
-  public deleteReserva(reservas: any): Promise<string> {
+  public deleteReserva(reserva: any): Promise<string> {
     return new Promise<string>((resolve, reject) => {
-      this.http.delete(this.host + 'reserva/' + reservas.codReserva, { responseType: 'text' }).subscribe(
+      this.http.delete(this.host + 'reserva/' + reserva.codReserva, { responseType: 'text' }).subscribe(
         () => {
           resolve('Reserva cancelada com sucesso');
         },
@@ -30,5 +35,4 @@ export class ListagemreservasService {
       );
     });
   }
-
 }
